@@ -4,7 +4,8 @@
 
 pragma solidity ^0.8.20;
 
-import "../libraries/TitanDataTypes.sol";
+import "libraries/TitanV2/TitanDataTypes.sol";
+
 
 /**
  * @title IEvents Interface

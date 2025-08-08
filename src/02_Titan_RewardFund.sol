@@ -15,15 +15,15 @@ import "@openzeppelin/contracts/utils/Pausable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
+
 import "interfaces/IEuphoriaX.sol";
 import "interfaces/IQbit.sol";
 import "TitanV2/ITitanRegister.sol";
 import "interfaces/IRouter.sol";
-import "TitanV2/ISupportFund.sol";
+import "interfaces/ISupportFund.sol";
 import "libraries/TitanV2/TitanDataTypes.sol";
 import "interfaces/IEvents.sol";
 import "libraries/TitanHelper.sol";
-
 
 contract Titan_RewardFund is ReentrancyGuard, Pausable, ITitanEventsReward {
     using SafeERC20 for IERC20;

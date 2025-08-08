@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.28;
+pragma solidity ^0.8.20;
 
 /**
  * ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
@@ -29,8 +29,9 @@ import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 import "interfaces/IRouter.sol";
 import "interfaces/IUpdateFund.sol";
 import {IEuphoriaEventsQbit, IEuphoriaEventsShared} from "interfaces/IEvents.sol";
-import "interfaces/TitanV2/ITitanRegister.sol
-";
+
+import "interfaces/TitanV2/ITitanRegister.sol";
+
 import "interfaces/IEuphoriaX.sol";
 
 // Qbit Phase 1 contract

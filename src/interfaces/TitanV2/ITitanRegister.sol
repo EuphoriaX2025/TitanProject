@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "../../libraries/TitanV2/TitanDataTypes.sol";
-import "../../interfaces/IEvents.sol";
+
+import "libraries/TitanV2/TitanDataTypes.sol";
+import "interfaces/IEvents.sol";
+
 
 /**
  * @title ITitanRegister Interface

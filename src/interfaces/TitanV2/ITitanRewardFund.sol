@@ -1,8 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "../../libraries/TitanV2/TitanDataTypes.sol";
-import "../../interfaces/IEvents.sol"; // Assuming IEvents contains the necessary event definitions
+
+import "libraries/TitanV2/TitanDataTypes.sol";
+import "interfaces/IEvents.sol";  // Assuming IEvents contains the necessary event definitions
+
+
 
 /**
  * @title ITitanRewardFund Interface

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "../../libraries/TitanV2/TitanDataTypes.sol";
+import "libraries/TitanV2/TitanDataTypes.sol";
 
 interface ITitanCapitalFund {
     function notifyPackageActivation(
