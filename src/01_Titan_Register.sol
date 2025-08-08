@@ -16,14 +16,14 @@ import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
 import "@openzeppelin/contracts/utils/Pausable.sol";
 
-// import "../../libraries/TitanV2/TitanHelper.sol";
-import "../../libraries/TitanHelper.sol";
-import "../../libraries/DateTime.sol";
-import "../../libraries/TitanV2/TitanDataTypes.sol";
-import "../../interfaces/IRouter.sol";
-import "../../interfaces/TitanV2/ITitanRegister.sol";
-import "../../interfaces/TitanV2/ITitanRewardFund.sol";
-import "../../interfaces/TitanV2/ITitanCapitalFund.sol";
+import "libraries/TitanHelper.sol";
+import "libraries/DateTime.sol";
+import "libraries/TitanV2/TitanDataTypes.sol";
+import "interfaces/IRouter.sol";
+import "TitanV2/ITitanRegister.sol";
+import "TitanV2/ITitanRewardFund.sol";
+import "TitanV2/ITitanCapitalFund.sol";
+
 
 contract Titan_Register is Context, Pausable, ITitanRegister {
     using SafeERC20 for IERC20;

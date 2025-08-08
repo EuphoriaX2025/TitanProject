@@ -2,12 +2,27 @@
 pragma solidity ^0.8.26;
 
 import "openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 interface IEuphoriaX is IERC20Metadata {
     function getCurrentPrice() external view returns (uint256);
     function ecoBurnFree(uint256 erxAmount, address contractAddress) external;
     function ecoPayFree(uint256 amount, uint256 tokenIndex, address contractAddress) external;
     function burnForStablecoin(uint256 erxAmount, uint256 tokenIndex, address contractAddress) external;
+
+interface IEuphoriaX is IERC20 {
+    function getCurrentPrice() external view returns (uint256);
+    function getMigrationStatus()
+        external
+        view
+        returns (
+            uint256 totalUsers,
+            uint256 totalWhales,
+            bool migrationAnnounced,
+            address migrationTarget,
+            uint256 timeRemaining,
+            bool routerMigrationInProgress
+        );
 
     // DAO functions
     function addToWhitelist(address contractAddress) external;

@@ -1,12 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.26;
 
-import "../interfaces/IRouter.sol";
-import "../interfaces/IEuphoriaX.sol";
-import "../interfaces/IQbit.sol";
-import "../interfaces/ITitanRegistration.sol";
-
-import "../libraries/TitanV2/TitanDataTypes.sol";
+import "interfaces/IRouter.sol";
+import "interfaces/IEuphoriaX.sol";
+import "interfaces/IQbit.sol";
+import "TitanV2/ITitanRegister.sol";
+import "libraries/TitanV2/TitanDataTypes.sol";
 
 library TitanHelper {
     // ثابت‌ها
