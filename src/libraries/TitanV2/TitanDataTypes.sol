@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // Version: 1.0.0
-// File: ./libraries/TitanDataTypes.sol
+// File: ./libraries/TitanV2/TitanDataTypes.sol
 
 pragma solidity ^0.8.20;
 
@@ -66,7 +66,6 @@ library TitanDataTypes {
         uint256 cleanupDueTimestamp;
     }
 
-    // Optional combined struct if we want all user info in one call
     struct UserFullInfo {
         UserBasicInfo basic;
         UserTreeInfo tree;
@@ -99,9 +98,8 @@ library TitanDataTypes {
         uint256 monthlyLimitUSD;
         uint256 totalLimitUSD;
     }
-}
 
-enum AddressType {
+    enum AddressType {
         Router,
         SupportFund,
         UpdateFund,
