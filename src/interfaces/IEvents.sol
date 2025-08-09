@@ -74,4 +74,23 @@ interface IEvents {
     // =================================================================
     event PeriodValuationProcessed(address indexed sourceContract, bool indexed isSupport, uint256 amountErx);
     event FundsDeposited(address indexed from, address indexed token, uint256 amount);
+
+    // =================================================================
+    // |                   Qbit Events                                 |
+    // =================================================================
+    event QBIT_MigrationCompleted(
+        uint256 timestamp, 
+        address indexed newContract, 
+        uint256 soldAmount, 
+        uint256 purchaseUsers, 
+        uint256 lockUsers
+    );
+
+    // =================================================================
+    // |                   EuphoriaX (erx) Events                      |
+    // =================================================================
+    event Transfer(address indexed from, address indexed to, uint256 value);
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+    event UserDataMigrated(address indexed user, address indexed to, uint256 timestamp);
+    event UserMigrationFailed(address indexed user, address indexed to, string reason, uint256 timestamp);
 }

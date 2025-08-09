@@ -17,15 +17,13 @@ import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
 import "TitanV2/ITitanRegister.sol";
 import "interfaces/IEuphoriaX.sol";
-import {ITitanEventsCapital} from "interfaces/IEvents.sol";
 import "interfaces/ISupportFund.sol";
 import "libraries/TitanV2/TitanDataTypes.sol";
 import "libraries/TitanHelper.sol";
 import "interfaces/IRouter.sol";
 import "libraries/DateTime.sol";
 
-
-contract Titan_CapitalFund is ReentrancyGuard, Pausable, ITitanEventsCapital {
+contract Titan_CapitalFund is ReentrancyGuard, Pausable {
     using SafeERC20 for IERC20;
     using SafeERC20 for IEuphoriaX;
 

@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 
 interface IEuphoriaXMigrator {
-    enum WhaleType { None, MiniWhale, PinkWhale, BlueWhale, KillerWhale }
+    enum WhaleType { None, Small, Medium, Large }
 
     struct UserActivity {
         uint256 totalBalance;

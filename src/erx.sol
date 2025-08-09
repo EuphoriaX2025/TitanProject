@@ -18,6 +18,7 @@ pragma solidity ^0.8.20;
  * ▓▓                                                                             ▓▓
  * ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
  */
+
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {IERC20Metadata, IERC20} from "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 import {IERC20Errors} from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
@@ -28,7 +29,6 @@ import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
 import "interfaces/IRouter.sol";
 import {IEuphoriaXMigrator} from "interfaces/IXMigrator.sol";
-import {IEuphoriaEvents, ITitanEventsShared, IEuphoriaEventsShared} from "interfaces/IEvents.sol";
 import {IUpdateFund} from "interfaces/IUpdateFund.sol";
 
 interface IUniswapV2Router {
@@ -41,15 +41,7 @@ interface IUniswapV2Router {
     ) external returns (uint256[] memory amounts);
 }
 
-contract EuphoriaX is
-    IERC20Errors,
-    ERC20,
-    ReentrancyGuard,
-    Pausable,
-    IEuphoriaEvents,
-    ITitanEventsShared,
-    IEuphoriaEventsShared
-{
+    contract EuphoriaX is IERC20Errors, ERC20, ReentrancyGuard, Pausable {
     using SafeERC20 for IERC20;
     using SafeERC20 for IERC20Metadata;
     using EnumerableSet for EnumerableSet.AddressSet;

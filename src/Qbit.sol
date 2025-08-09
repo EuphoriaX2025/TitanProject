@@ -29,14 +29,13 @@ import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
 import "interfaces/IRouter.sol";
 import "interfaces/IUpdateFund.sol";
-import {IEuphoriaEventsQbit, IEuphoriaEventsShared} from "interfaces/IEvents.sol";
 
 import "interfaces/TitanV2/ITitanRegister.sol";
 
 import "interfaces/IEuphoriaX.sol";
 
 // Qbit Phase 1 contract
-contract Qbit is ERC20, ReentrancyGuard, Pausable, Ownable(msg.sender), IEuphoriaEventsQbit, IEuphoriaEventsShared {
+contract Qbit is ERC20, ReentrancyGuard, Pausable, Ownable(msg.sender) {
     using SafeERC20 for IERC20;
     using SafeERC20 for IERC20Metadata;
     using EnumerableSet for EnumerableSet.AddressSet;
@@ -194,6 +193,9 @@ contract Qbit is ERC20, ReentrancyGuard, Pausable, Ownable(msg.sender), IEuphori
             emit QBIT_UF_DIST_DONE(block.timestamp, currentVersion, amount, updateFund);
         } catch {
             revert("Failed to notify update fund");
+            emit QBIT_MigrationCompleted(
+    block.timestamp, newContract, soldInitialAmount, _purchaseUsers.length(), _lockUsers.length()
+);
         }
     }
 
@@ -1155,10 +1157,6 @@ contract Qbit is ERC20, ReentrancyGuard, Pausable, Ownable(msg.sender), IEuphori
         // Stop internal sale
         internalSaleStopped = true;
 
-        emit QBIT_MigrationCompleted(
-            block.timestamp, newContract, soldInitialAmount, _purchaseUsers.length(), _lockUsers.length()
-        );
-    }
 
     function addToWhitelist(address contractAddress) external onlyDAO {
         if (contractAddress == address(0)) revert IA();
