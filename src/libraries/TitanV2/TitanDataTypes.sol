@@ -100,3 +100,11 @@ library TitanDataTypes {
         uint256 totalLimitUSD;
     }
 }
+
+enum AddressType {
+        Router,
+        SupportFund,
+        UpdateFund,
+        DAO
+    }
+}
