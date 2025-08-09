@@ -1129,34 +1129,39 @@ contract Qbit is ERC20, ReentrancyGuard, Pausable, Ownable(msg.sender) {
         return (purchaseUsers, freeBalances, soldInitialAmount, getCurrentStage(), investors);
     }
 
-    function migrateToNewContract(address newContract) external onlyDAO nonReentrant {
-        require(newContract != address(0), "Invalid new contract");
-        require(newContract.code.length > 0, "New contract has no code");
+ function migrateToNewContract(address newContract) external onlyDAO nonReentrant {
+    require(newContract != address(0), "Invalid new contract");
+    require(newContract.code.length > 0, "New contract has no code");
 
-        // Update version
-        currentVersion++;
-        version[currentVersion] = newContract;
+    // Update version
+    currentVersion++;
+    version[currentVersion] = newContract;
 
-        // Transfer all stablecoins to the new contract
-        for (uint256 i = 0; i < stablecoins.length; i++) {
-            IERC20 stablecoin = IERC20(address(stablecoins[i]));
-            uint256 balance = stablecoin.balanceOf(address(this));
-            if (balance > 0) {
-                stablecoin.safeTransfer(newContract, balance);
-            }
+    // Transfer all stablecoins to the new contract
+    for (uint256 i = 0; i < stablecoins.length; i++) {
+        IERC20 stablecoin = IERC20(address(stablecoins[i]));
+        uint256 balance = stablecoin.balanceOf(address(this));
+        if (balance > 0) {
+            SafeERC20.safeTransfer(IERC20(address(stablecoin)), newContract, balance);
         }
+    }
 
-        // Transfer contract's free balance
-        uint256 contractBalance = freeBalance[address(this)];
-        if (contractBalance > 0) {
-            freeBalance[address(this)] = 0;
-            freeBalance[newContract] = contractBalance;
-            _transfer(address(this), newContract, contractBalance);
-        }
+    // Transfer contract's free balance
+    uint256 contractBalance = freeBalance[address(this)];
+    if (contractBalance > 0) {
+        freeBalance[address(this)] = 0;
+        freeBalance[newContract] = contractBalance;
+        _transfer(address(this), newContract, contractBalance);
+    }
 
-        // Stop internal sale
-        internalSaleStopped = true;
+    // Stop internal sale
+    internalSaleStopped = true;
 
+    // Emit event
+    emit QBIT_MigrationCompleted(
+        block.timestamp, newContract, soldInitialAmount, _purchaseUsers.length(), _lockUsers.length()
+    );
+} 
 
     function addToWhitelist(address contractAddress) external onlyDAO {
         if (contractAddress == address(0)) revert IA();
