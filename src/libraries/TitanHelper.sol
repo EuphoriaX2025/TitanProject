@@ -1,6 +1,6 @@
+// فایل کامل اصلاح‌شده TitanHelper.sol
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
-
 
 import "interfaces/IRouter.sol";
 import "interfaces/IEuphoriaX.sol";
@@ -65,7 +65,7 @@ library TitanHelper {
     }
 
     function getPreviousMonthStart(uint256 _monthStart) internal pure returns (uint256) {
-        return ((_monthStart / MONTH_DURATION) + 1) * MONTH_DURATION;
+        return ((_monthStart / MONTH_DURATION) - 1) * MONTH_DURATION;
     }
 
     function getMonthlyCapUSD(uint8 _group, uint8 _type) internal pure returns (uint256) {
@@ -103,7 +103,7 @@ library TitanHelper {
     }
 
     function getDailyRFTCap(address _titanRegistration, address _user, uint8 _group) internal view returns (uint256) {
-        uint8 userPackageType = ITitanRegistration(_titanRegistration).getPackageType(_user, uint8(_group));
+        uint8 userPackageType = ITitanRegister(_titanRegistration).getPackageType(_user, uint8(_group));
 
         if (PackageType(userPackageType) == PackageType.Classic) {
             if (_group == 1) return 10;
@@ -130,7 +130,7 @@ library TitanHelper {
         view
         returns (uint256)
     {
-        uint8 userPackageType = ITitanRegistration(_titanRegistration).getPackageType(_user, uint8(_group));
+        uint8 userPackageType = ITitanRegister(_titanRegistration).getPackageType(_user, uint8(_group));
         if (PackageType(userPackageType) == PackageType.Classic) {
             if (_group == 1) return 100;
             if (_group == 2) return 300;

@@ -95,4 +95,6 @@ interface ITitanRegister {
         );
 
     function notifyPackageSettled(address _userAddress, uint256 _packageId) external;
+
+    function getPackageType(address _user, uint8 _group) external view returns (TitanDataTypes.PackageType);
 }
