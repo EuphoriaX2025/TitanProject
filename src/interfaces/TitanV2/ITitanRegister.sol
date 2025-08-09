@@ -1,10 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-
 import "libraries/TitanV2/TitanDataTypes.sol";
 import "interfaces/IEvents.sol";
-
 
 /**
  * @title ITitanRegister Interface
@@ -12,6 +10,7 @@ import "interfaces/IEvents.sol";
  * @dev نسخه 3.6.0 - افزودن تابع getUsersLastPackageTypeInGroup برای استعلام نوع پکیج توسط RewardFund.
  */
 
+interface ITitanRegister {
     // function getUserDetails(address)
     //     external
     //     view
@@ -48,7 +47,6 @@ import "interfaces/IEvents.sol";
     function pause() external;
     function unpause() external;
     function setDaoAddress(address _newDaoAddress) external;
-    // function setSystemAddress(TitanDataTypes.AddressType _addressType, address _newAddress) external;
     function addRoyal(address _newRoyalAddress) external;
     function removeRoyal(address _royalAddress) external;
     function recoverTokens(address _tokenAddress, address _to, uint256 _amount) external;
