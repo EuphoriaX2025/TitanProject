@@ -11,7 +11,7 @@ import "interfaces/IEvents.sol";
  * @notice اینترفیس عمومی برای تعامل با قرارداد Titan_Register.
  * @dev نسخه 3.6.0 - افزودن تابع getUsersLastPackageTypeInGroup برای استعلام نوع پکیج توسط RewardFund.
  */
-interface ITitanRegister is ITitanEventsRegister {
+
     // function getUserDetails(address)
     //     external
     //     view
