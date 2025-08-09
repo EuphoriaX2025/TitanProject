@@ -105,4 +105,10 @@ library TitanDataTypes {
         UpdateFund,
         DAO
     }
+
+    enum MonsterAwardStatus {
+        NotQualified,
+        Qualified,
+        Claimed
+    }
 }
